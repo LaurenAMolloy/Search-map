@@ -1,5 +1,15 @@
+import axios from 'axios'
 export const search = async(term: string) => {
-    const res = await fetch(`https://nominatim.openstreetmap.org/search?q=${term}&format=geojson&addressdetail=1&layer=address&limit=5`);
-    const data = await res.json();
-    console.log(data)
-}
+
+    try {
+        const response = await axios.get("http://localhost:8080/", {
+           params: {q: term}, 
+        })
+        console.log(response);
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+
+};
+      
