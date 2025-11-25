@@ -2,11 +2,15 @@ import express from "express";
 import cors from "cors";
 import axios from "axios";
 
+//Port for server
 const PORT = 8080;
+//Initialise express
 const app = express();
 
+//Enable cors
 app.use(cors());
 
+//HTTP Request
 app.get("/", (req, res) => {
     const options = {
         method: "GET",
@@ -29,6 +33,7 @@ app.get("/", (req, res) => {
     });
 });
 
+//Listen for requests
 app.listen(PORT, () => {
     console.log(`Server is running on  ${PORT}`)
 })
